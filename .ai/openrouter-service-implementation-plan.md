@@ -7,6 +7,7 @@ Usługa OpenRouter integruje komunikację z modelem LLM poprzez API OpenRouter. 
 ## 2. Opis konstruktora
 
 Konstruktor usługi powinien:
+
 - Inicjować konfigurację API (API key, baza URL, itp.).
 - Ustawiać domyślne parametry modelu (temperature, top_p, frequency_penalty, presence_penalty).
 - Umożliwiać konfigurację komunikatu systemowego (role: 'system') oraz użytkownika (role: 'user').
@@ -15,6 +16,7 @@ Konstruktor usługi powinien:
 ## 3. Publiczne metody i pola
 
 Główne elementy interfejsu publicznego:
+
 - **sendChatMessage(userMessage: string): Promise<ResponseType>**
   - Wysyła komunikat użytkownika do API, uwzględniając wcześniej ustawiony komunikat systemowy oraz konfigurację modelu.
 - **setSystemMessage(message: string): void**
@@ -30,6 +32,7 @@ Główne elementy interfejsu publicznego:
 ## 4. Prywatne metody i pola
 
 Kluczowe komponenty wewnętrzne:
+
 - **executeRequest(requestPayload: RequestPayload): Promise<ApiResponse>**
   - Realizuje wywołanie HTTP do API OpenRouter, zarządza retry oraz parsowaniem odpowiedzi.
 - **buildRequestPayload(): RequestPayload**
@@ -49,6 +52,7 @@ Kluczowe komponenty wewnętrzne:
 ## 5. Obsługa błędów
 
 Obsługa błędów powinna obejmować:
+
 - Walidację odpowiedzi API – sprawdzanie zgodności otrzymanego JSON z oczekiwanym schematem.
 - Obsługę błędów sieciowych (np. timeout, brak połączenia) oraz wdrożenie mechanizmu retry z backoff.
 - Rzucanie specyficznych wyjątków dla przypadków błędów autentykacji (np. niepoprawny API key) oraz przekroczenia limitów API.
@@ -57,6 +61,7 @@ Obsługa błędów powinna obejmować:
 ## 6. Względy bezpieczeństwa
 
 W aspekcie bezpieczeństwa należy zwrócić uwagę na:
+
 - Przechowywanie kluczy API w zmiennych środowiskowych.
 - Ograniczenie logowania danych wrażliwych – unikanie zapisywania pełnych ładunków zawierających klucze API.
 

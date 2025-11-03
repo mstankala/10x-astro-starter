@@ -3,19 +3,19 @@
 ## 1. Resources
 
 - **Users**
-  - *Database Table*: `users`
+  - _Database Table_: `users`
   - Managed through Supabase Auth; operations such as registration and login may be handled via Supabase or custom endpoints if needed.
 
 - **Flashcards**
-  - *Database Table*: `flashcards`
+  - _Database Table_: `flashcards`
   - Fields include: `id`, `front`, `back`, `source`, `created_at`, `updated_at`, `generation_id`, `user_id`.
 
 - **Generations**
-  - *Database Table*: `generations`
+  - _Database Table_: `generations`
   - Stores metadata and results of AI generation requests (e.g., `model`, `generated_count`, `source_text_hash`, `source_text_length`, `generation_duration`).
 
 - **Generation Error Logs**
-  - *Database Table*: `generation_error_logs`
+  - _Database Table_: `generation_error_logs`
   - Used for logging errors encountered during AI flashcard generation.
 
 ## 2. Endpoints
@@ -101,7 +101,7 @@
   - **Request JSON**:
     ```json
     {
-      "source_text": "User provided text (1000 to 10000 characters)",
+      "source_text": "User provided text (1000 to 10000 characters)"
     }
     ```
   - **Business Logic**:
@@ -112,9 +112,7 @@
     ```json
     {
       "generation_id": 123,
-      "flashcards_proposals": [
-         { "front": "Generated Question", "back": "Generated Answer", "source": "ai-full" }
-      ],
+      "flashcards_proposals": [{ "front": "Generated Question", "back": "Generated Answer", "source": "ai-full" }],
       "generated_count": 5
     }
     ```
@@ -134,7 +132,7 @@
 
 ### 2.4. Generation Error Logs
 
-*(Typically used internally or by admin users)*
+_(Typically used internally or by admin users)_
 
 - **GET `/generation-error-logs`**
   - **Description**: Retrieve error logs for AI flashcard generation for the authenticated user or admin.

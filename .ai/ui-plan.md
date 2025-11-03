@@ -1,4 +1,3 @@
-
 # Architektura UI dla 10xCards
 
 ## 1. Przegląd struktury UI
