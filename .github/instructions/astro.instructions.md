@@ -1,6 +1,6 @@
 ---
-applyTo: '*.astro'
 description:
+applyTo: '*.astro'
 ---
 ### Guidelines for Astro
 
